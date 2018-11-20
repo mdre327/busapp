@@ -1,0 +1,71 @@
+<mat-card class="mb-40">
+    <h1>
+        <mat-icon>edit</mat-icon>
+        Edit User
+    </h1>
+</mat-card>
+
+<mat-card>
+    <form #skaffolderForm="ngForm" class="container-fluid mt-20" *ngIf="user">
+        <mat-form-field class="full-width">
+            <input matInput *ngIf="user._id" type="text" placeholder="Username" #username='ngModel' [(ngModel)]="user.username" name="username" id="username" required disabled>
+            <input matInput *ngIf="!user._id" type="text" placeholder="Username" #username='ngModel' [(ngModel)]="user.username" name="username" id="username" required>
+        </mat-form-field>
+        
+        
+        <mat-form-field class="full-width">
+            <input matInput type="string" placeholder="mail" #mail='ngModel' [(ngModel)]="user.mail" name="mail" id="mail" >
+        </mat-form-field>
+        
+        <mat-form-field class="full-width">
+            <input matInput type="string" placeholder="name" #name='ngModel' [(ngModel)]="user.name" name="name" id="name" >
+        </mat-form-field>
+        
+        <mat-form-field class="full-width">
+            <input matInput type="string" placeholder="surname" #surname='ngModel' [(ngModel)]="user.surname" name="surname" id="surname" >
+        </mat-form-field>
+        
+        
+        <mat-form-field class="full-width" *ngIf="!user._id">
+            <input matInput type="password" placeholder="Password" #password='ngModel' [(ngModel)]="user.password" name="password" id="password" validateEqual="passwordConfirm" reverse="true" required>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" *ngIf="!user._id">
+            <input matInput type="password" placeholder="Password Confirm" #passwordConfirm='ngModel' [(ngModel)]="user.passwordConfirm" name="passwordConfirm" id="passwordConfirm" validateEqual="password" required>
+            <mat-error>The passwords missmatch</mat-error>
+        </mat-form-field>
+
+        <!-- ROLE MANAGEMENT -->
+        <h3>Roles</h3>
+        <div>
+            <mat-form-field class="full-width mb-30 btn-r">
+                <input matInput type="text" placeholder="Add a new Role..." #newRole name="newRole" id="newRole">
+            </mat-form-field>
+            <button mat-mini-fab color="primary" (click)="addRole(newRole)">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+
+        <!-- NO ROLES -->
+        <label *ngIf="!user.roles || user.roles.length==0">
+            No roles assigned to user
+        </label>
+
+        <!-- ROLES -->
+        <div *ngFor="let role of user.roles; let i = index; trackBy:trackByFn">
+            <mat-form-field class="full-width btn-r">
+                <input required matInput type="text" [(ngModel)]="user.roles[i]" name="role_{{i}}" id="role_{{i}}">
+            </mat-form-field>
+            <button mat-icon-button (click)="removeRole(i)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+
+        <div class="mt-40">
+            <button mat-raised-button (click)="openModal(user._id, modal)" *ngIf="user._id" color="accent">Change Password</button>
+            <button mat-raised-button class="pull-right" color="primary" [disabled]="skaffolderForm.invalid" (click)="save()">Save</button>
+            <button mat-button class="pull-right" routerLink="/manage-users">Back To User List</button>
+        </div>
+
+    </form>
+</mat-card>

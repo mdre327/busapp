@@ -1,0 +1,37 @@
+<!-- TITLE -->
+<mat-card class="mb-40">
+    <h1>
+        <mat-icon>person</mat-icon>
+        My profile
+    </h1>
+</mat-card>
+
+<mat-card>
+    <form #skaffolderForm="ngForm" class="container-fluid mt-20" *ngIf="user">
+        
+        <mat-form-field class="full-width">
+            <input matInput type="text" placeholder="Username" #username='ngModel' [(ngModel)]="user.username" name="username" id="username" disabled>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <input matInput type="text" placeholder="Name" #nome='ngModel' [(ngModel)]="user.name" name="name" id="name">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <input matInput type="text" placeholder="Surname" #surname='ngModel' [(ngModel)]="user.surname" name="surname" id="surname">
+        </mat-form-field>
+
+        <mat-form-field class="full-width mb-30">
+            <input matInput type="text" placeholder="Mail" #mail='ngModel' [(ngModel)]="user.mail" name="mail" id="mail">
+        </mat-form-field>
+
+        <!-- BUTTON BAR -->
+        <div class="mt-40">
+            <button mat-raised-button (click)="openModal(modal)" color="accent">Change Password</button>
+            <button mat-raised-button class="pull-right" color="primary" (click)="save(skaffolderForm.valid)">Save</button>
+            <button mat-button class="pull-right" routerLink="/home">Back To Home</button>
+        </div>
+
+    </form>
+</mat-card>
+

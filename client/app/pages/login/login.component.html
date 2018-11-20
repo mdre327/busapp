@@ -1,0 +1,50 @@
+<mat-card class="col-sm-offset-3 col-sm-6 login-box">
+    <form name="form" (ngSubmit)="form.form.valid && login()" class="form-horizontal" #form="ngForm" novalidate>
+
+        <h1 class="text-center">Welcome in</h1>
+        <h1 class="text-center mb-20"> Locations</h1>
+
+        <!-- INFO BOX -->
+        <mat-card class="bg-info mb-40 mt-20">
+            <div>
+                <strong>Default username:</strong> admin
+            </div>
+            <div>
+                <strong>Password:</strong> pass
+            </div>
+        </mat-card>
+
+        <!-- INPUT CREDENTIALS  -->
+
+        <mat-form-field class="full-width">
+            <mat-icon class="mr-10" matPrefix>person</mat-icon>
+            <input matInput type="text" placeholder="Username" autofocus name="usernameForm" [(ngModel)]="username" required/>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-icon class="mr-10" matPrefix>lock</mat-icon>
+            <input matInput type="password" placeholder="Password" name="password" [(ngModel)]="password" required/>
+        </mat-form-field>
+
+        <!-- ERROR MESSAGE -->
+        <div class="clearfix"></div>
+        <mat-card *ngIf="showError" class="bg-danger mt-10 mb-20">
+            Username or password not valid
+            <a class="close" (click)="closeError()" title="close">×</a>
+        </mat-card>
+
+        <!-- REMEMBER ME -->
+        <div class="form-group mt-20">
+            <mat-checkbox [(ngModel)]="remember" name="remember" class="mt-10 ml-10 mr-20 pull-right">
+                <label class="pull-right">Remember login</label>
+            </mat-checkbox>
+        </div>
+
+        <!-- LOGIN BUTTON -->
+        <div class="clearfix"></div>
+        <button type="submit" class="pull-right" mat-raised-button color="primary">Login</button>
+        <div class="clearfix"></div>
+
+
+    </form>
+</mat-card>

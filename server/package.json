@@ -1,0 +1,26 @@
+{
+    "name": "locations",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Locations generated with Skaffolder    www.skaffolder.com  ",
+    "scripts": {
+        "build": "nodemon app.js",
+        "start": "nodemon app.js",
+        "debug": "nodemon --debug-brk app.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "body-parser": "^1.17.2",
+        "express": "^4.15.3",
+        "extend": "^3.0.1",
+        "jsonwebtoken": "^7.4.1",
+        "mongoose": "^4.10.3",
+        "nodemon": "^1.11.0",
+        "swagger-ui-express": "^2.0.15",
+        "tracer": "^0.8.9",
+        "yamljs": "^0.3.0"
+    },
+    "repository": {}
+}

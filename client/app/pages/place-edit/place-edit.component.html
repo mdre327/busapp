@@ -1,0 +1,50 @@
+<!-- TITLE -->
+<mat-card class="mb-40">
+    <h1>Place Edit</h1>
+</mat-card>
+
+<div class="col-sm-4">
+
+    <mat-card>
+        <div class="card-title">
+            <mat-icon>edit</mat-icon>
+            Edit
+        </div>
+
+        <form #skaffolderForm="ngForm" class="container-fluid">
+
+            <mat-form-field class="full-width mb-20">
+                <input matInput type="text" placeholder="Name" [(ngModel)]="item.name" name="name" id="name" required>
+            </mat-form-field>
+            <div class="row mb-20">
+                <div class="col-sm-3">
+                    <strong>Latitude:</strong>
+                </div>
+                <div class="col-sm-8">
+                    {{item.latitude}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <strong>Longitude:</strong>
+                </div>
+                <div class="col-sm-8">
+                    {{item.longitude}}
+                </div>
+            </div>
+
+            <!-- BUTTON BAR -->
+            <div class="mt-40">
+                <button mat-raised-button color="primary" class="pull-right mr-5" [disabled]="skaffolderForm.invalid" (click)="save(skaffolderForm.valid, item)">Save</button>
+            </div>
+        </form>
+
+    </mat-card>
+</div>
+<div class="col-sm-8">
+    <mat-card>
+        <agm-map [latitude]="item.latitude" [longitude]="item.longitude">
+            <agm-marker [markerDraggable]="true" (dragEnd)="markerMoved($event)" [latitude]="item.latitude" [longitude]="item.longitude"></agm-marker>
+        </agm-map>
+    </mat-card>
+</div>

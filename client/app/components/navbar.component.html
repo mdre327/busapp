@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+
+    <div routerLink="/">Locations</div>
+
+    <span class="spacer-half hidden-xs"></span>
+    <div class="flex hidden-xs" *ngIf="user">
+    </div>
+
+    <span class="spacer"></span>
+    <div *ngIf="user">
+
+        <!-- MENU -->
+        <mat-menu #appMenu="matMenu" [overlapTrigger]="false" xPosition="before">
+            <button mat-menu-item routerLink="/profile">
+                <mat-icon>person</mat-icon>
+                Profile
+            </button>
+            <button mat-menu-item routerLink="/manage-users" *ngIf="user.isAdmin()">
+                <mat-icon>group</mat-icon>
+                Manage Users
+            </button>
+            <div class="divider"></div>
+            <button mat-menu-item (click)='logout($event)'>
+                <mat-icon>power_settings_new</mat-icon>
+                Logout
+            </button>
+        </mat-menu>
+
+        <!-- MENU BUTTON -->
+        <button mat-icon-button [matMenuTriggerFor]="appMenu" class="menu-right">
+            <span class="hidden-xs">Welcome </span>{{user?.username}}
+            <mat-icon>expand_more</mat-icon>
+        </button>
+    </div>
+
+</mat-toolbar>

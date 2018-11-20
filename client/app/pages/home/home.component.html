@@ -1,0 +1,75 @@
+<!-- TITLE -->
+<mat-card class="mb-40">
+    <h1>
+        Locations
+    </h1>
+</mat-card>
+
+
+<mat-card class="mb-40">
+    <div class="card-title">
+        <mat-icon>search</mat-icon>
+        Search
+    </div>
+    <mat-card-content>
+
+        <form #skaffolderForm="ngForm" class="container-fluid">
+
+            <mat-form-field class="full-width">
+                <input matInput type="text" placeholder="Name" [(ngModel)]="search.name" name="name" id="name">
+            </mat-form-field>
+
+        </form>
+    </mat-card-content>
+
+</mat-card>
+<div class="col-sm-4">
+    <mat-card class="p-0">
+        <mat-nav-list>
+            <mat-list-item class="title-list">
+                <div class="w-100">
+                    <span class="w-80">
+                        <strong>Name</strong>
+                    </span>
+                    <span class="w-10">
+                            <button mat-mini-fab color="primary" class="to-right r-40" [routerLink]="['/places', 'new']">
+                                <mat-icon>add</mat-icon>
+                            </button>
+                    </span>
+                </div>
+            </mat-list-item>
+            <mat-list-item *ngIf="!places || places.length == 0">
+                <div class="w-80">
+                    <span class="w-90">
+                                No place found
+                        </span>
+                </div>
+            </mat-list-item>
+            <mat-list-item role="listitem" *ngFor="let place of listSlice | search: { 'name': search.name, 'list': places}" (click)="select(place)">
+                <div class="w-80">
+                    <span class="w-90">
+                        {{place.name}}
+                </span>
+                </div>
+                <div class="spacer"></div>
+                <button mat-icon-button class="to-right r-40" [routerLink]="['/places', place._id]">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button class="to-right" (click)="removePlace(place._id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-list-item>
+        </mat-nav-list>
+        <mat-paginator *ngIf="places.length > 0" [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event;page(places)">
+        </mat-paginator>
+    </mat-card>
+</div>
+<div class="col-sm-8">
+    <mat-card>
+        <mat-card-content>
+            <agm-map [latitude]="lat" [longitude]="lng">
+                <agm-marker *ngFor='let place of places' [latitude]="place.latitude" [longitude]="place.longitude"></agm-marker>
+            </agm-map>
+        </mat-card-content>
+    </mat-card>
+</div>

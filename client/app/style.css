@@ -1,0 +1,336 @@
+/* TEMPLATE */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 40px;
+    background-color: #e6e8f5;
+}
+
+.main-container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+
+/* LOGIN */
+
+@media(min-width: 768px) {
+    .login-box {
+        margin-left: -25%;
+        left: 50%;
+        margin-top: 50px;
+    }
+}
+
+.login-box .mat-input-prefix .mat-icon {
+    font-size: 35px;
+    margin-bottom: -6px;
+}
+
+
+/* FOOTER */
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    padding: 12px 20px;
+    text-align: right;
+    background-color: #3f51b5;
+    color: #e6e8f5;
+}
+
+.footer a {
+    color: #FF7800;
+}
+
+
+/* LINKS */
+
+*[ng-link]:not(.btn-link) {
+    color: #FF7800;
+    cursor: pointer;
+}
+
+*[ng-link].btn:not(.btn-link) {
+    color: white;
+}
+
+*[ng-link]:hover {
+    text-decoration: underline;
+}
+
+*[routerLink] {
+    color: #FF7800;
+    cursor: pointer;
+}
+
+
+/* CHECKBOX */
+
+.mat-checkbox-layout {
+    margin-bottom: -12px;
+}
+
+mat-checkbox label {
+    font-weight: normal;
+    line-height: 5;
+    margin: 0px;
+}
+
+
+/* MATERIAL BOOTSTRAP TABLE */
+
+.table {
+    background-color: white;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+
+.table th {
+    color: rgba(0, 0, 0, .54);
+    font-size: 12px;
+    font-weight: 500;
+    font-family: Roboto, Helvetica Neue, sans-serif;
+}
+
+.table tr {
+    border-bottom-width: 1px;
+}
+
+.no-result {
+    padding: 15px 25px;
+    color: rgba(0, 0, 0, .54);
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Roboto, Helvetica Neue, sans-serif;
+}
+
+
+/* CARD */
+
+.card-title {
+    background-color: #f2f2f2;
+    color: rgba(0, 0, 0, .54);
+    margin: -24px;
+    position: relative;
+    top: -25px;
+    padding: 8px 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+@media(max-width: 768px) {
+    .card-title {
+        margin: -16px;
+    }
+}
+
+.card-title .material-icons {
+    top: 6px;
+    margin-right: 10px;
+    position: relative;
+}
+
+h1 .mat-icon {
+    width: 50px;
+    font-size: 51px;
+    float: left;
+    margin-right: 20px;
+    position: relative;
+    top: -10px;
+}
+
+
+/* MARGIN LEFT */
+
+.ml-20 {
+    margin-left: 20px;
+}
+
+
+/* MARGIN RIGHT */
+
+.mr-5 {
+    margin-right: 5px;
+}
+
+.mr-10 {
+    margin-right: 10px;
+}
+
+.mr-20 {
+    margin-right: 20px;
+}
+
+
+/* MARGIN BOTTOM */
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mb-30 {
+    margin-bottom: 20px;
+}
+
+.mb-40 {
+    margin-bottom: 40px;
+}
+
+
+/* MARGIN TOP */
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
+
+.mt--10,
+.mt--10.mat-icon-button {
+    margin-top: -10px;
+}
+
+.btn-r {
+    margin-right: -50px;
+    padding-right: 70px;
+}
+
+
+/* BAKGROUND */
+
+.bg-info {
+    background: #d9edf7;
+}
+
+.bg-danger {
+    background: #F2DEDE;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.padding-menu-text-left {
+    padding: 0 25px 0 0;
+}
+
+
+/* NAVBAR */
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.spacer-half {
+    flex: 0.5 1 auto;
+}
+
+.menu-right.mat-icon-button {
+    min-width: 150px;
+    text-align: right;
+}
+
+.divider {
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.mat-toolbar-row *[routerLink] {
+    color: #ffffffde;
+}
+
+.mat-menu-panel *[routerLink] {
+    color: #000000de;
+}
+
+.mat-toolbar-row .links div {
+    margin-right: 10px;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex div {
+    margin-right: 20px;
+}
+
+
+/* BUTTON */
+
+.button-suffix {
+    border: 1px solid #555;
+    background: #eee;
+}
+
+agm-map {
+    height: 300px;
+}
+
+.selected {
+    background-color: darkgray;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.w-90 {
+    width: 90%;
+}
+
+.w-80 {
+    width: 80%;
+    display: inline-block;
+}
+
+.w-70 {
+    width: 70%;
+    display: inline-block;
+}
+
+.w-60 {
+    width: 60%;
+    display: inline-block;
+}
+
+.w-20 {
+    width: 20%;
+    display: inline-block;
+}
+
+.w-10 {
+    width: 10%;
+    display: inline-block;
+}
+
+.p-0 {
+    padding: 0px !important;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}

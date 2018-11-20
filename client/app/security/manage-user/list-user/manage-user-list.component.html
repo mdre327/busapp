@@ -1,0 +1,74 @@
+<!-- TITLE -->
+<mat-card class="mb-40">
+    <h1>Manage User</h1>
+</mat-card>
+
+<!-- SEARCH FORM -->
+<mat-card class="mb-40">
+    <div class="card-title">
+        <mat-icon>search</mat-icon>
+        Search
+    </div>
+
+    <form #skaffolderForm="ngForm" class="container-fluid">
+
+        <mat-form-field class="full-width">
+            <input matInput type="text" placeholder="Username" #username='ngModel' [(ngModel)]="search.username" name="username" id="username">
+        </mat-form-field>
+        
+        
+        <mat-form-field class="full-width">
+            <input matInput type="string" placeholder="mail" #mail='ngModel' [(ngModel)]="search.mail" name="mail" id="mail" >
+        </mat-form-field>
+        
+        <mat-form-field class="full-width">
+            <input matInput type="string" placeholder="name" #name='ngModel' [(ngModel)]="search.name" name="name" id="name" >
+        </mat-form-field>
+        
+        <mat-form-field class="full-width">
+            <input matInput type="string" placeholder="surname" #surname='ngModel' [(ngModel)]="search.surname" name="surname" id="surname" >
+        </mat-form-field>
+        
+        </form>
+</mat-card>
+
+<!-- TABLE LIST -->
+<table class="table table-hover mt-40">
+    <thead>
+        <tr>
+            <th>Username</th>
+            
+            <th>Mail</th>
+            
+            <th>Name</th>
+            
+            <th>Surname</th>
+            
+            <th>Roles</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users | search:{'username' : search.username, 'name' : search.name, 'surname' : search.surname, 'mail' : search.mail, 'roles' : search.role }">
+            <td><a [routerLink]="['/manage-users/', user._id]">{{user.username}}</a></td>
+            
+            <td>{{user.mail }}</td>
+            
+            <td>{{user.name }}</td>
+            
+            <td>{{user.surname }}</td>
+            
+            <td>
+                <mat-chip-list class="">
+                    <mat-chip *ngFor="let role of user.roles" selected="true" color="primary">
+                        {{role}}
+                    </mat-chip>
+                </mat-chip-list>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- BUTTON -->
+<button class="btn btn-primary pull-right mb-20" routerLink="/manage-users/new" mat-fab color="primary">
+    <mat-icon>add</mat-icon>
+</button>
